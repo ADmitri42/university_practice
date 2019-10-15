@@ -9,6 +9,13 @@
 #include <string>
 #include <fstream>
 
+/*
+ *  Структура Name необходима для упрощения сравнения имен и их хранения
+ *  Если неожиданно придется использовать
+ *  string для хранения имен, то в классе Book нужно будет поменять только operator<< и тип
+ *
+ *  read_csv читает csv файл с данными и загружает их в вектор
+ */
 typedef struct {
     std::string first_name;
     std::string last_name;

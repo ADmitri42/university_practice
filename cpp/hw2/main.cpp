@@ -7,6 +7,11 @@
 #include <chrono>
 
 int main() {
+    /*
+     * Настраиваем окружение для тестов
+     * Сначала мы сортируем на первых 200, потом 400 и так далее
+     */
+
     std::string headline = "        \t200\t\t400\t\t600\t\t800\t\t1000";
     std::string meanline = "  Mean  \t";
     std::vector<std::string> files = {
@@ -26,6 +31,9 @@ int main() {
     double means[5] = {0, 0, 0, 0, 0};
     std::cout.precision(7);
 
+    /*
+     * Тестируем bubble sort
+     */
     std::cout << "Bubble sort" << std::endl;
     std::cout << headline << std::endl;
     for(auto file: files){
@@ -46,7 +54,7 @@ int main() {
 
     std::cout << meanline;
     for(int i = 0; i < 10; i++){
-        std::cout << means[i]/10 << "\t";
+        std::cout << means[i]/10 << "\t"; // Выводим среднее
         means[i] = 0;
     }
     std::cout << std::endl;
@@ -71,7 +79,7 @@ int main() {
 
     std::cout << meanline;
     for(auto t: means){
-        std::cout << t/5 << "\t";
+        std::cout << t/10 << "\t"; // Выводим среднее
     }
     std::cout << std::endl;
     files.clear();

@@ -108,23 +108,15 @@ std::vector<Book> read_csv(std::string filename){
     std::string line, word, temp, bookname;
     int year, pages;
 
-    while (!fin.eof()) {
+    while (!fin.eof()) { // Пока не дойдем до конца файла
 
         row.clear();
 
-        // read an entire row and
-        // store it in a string variable 'line'
-        getline(fin, line, '\n');
+        getline(fin, line, '\n'); // Читаем строки
 
-        // used for breaking words
         std::stringstream s(line);
 
-        // read every column data of a row and
-        // store it in a string variable, 'word'
-        while (std::getline(s, word, ';')) {
-
-            // add all the column data
-            // of a row to a vector
+        while (std::getline(s, word, ';')) { // И читаем текст, разделенный ;
             row.push_back(word);
         }
 
@@ -134,9 +126,9 @@ std::vector<Book> read_csv(std::string filename){
         bookname = row[3];
         year = stoi(row[4]);
         pages = stoi(row[5]);
-        Book new_book = {author_name, bookname, year, pages};
-        books.push_back(new_book);
+        Book new_book = {author_name, bookname, year, pages}; // Создаем книгу
+        books.push_back(new_book); // Добавляем её в вектор
     }
-    fin.close();
+    fin.close(); // Закрываем файл
     return books;
 }
